@@ -129,12 +129,12 @@ em{font-style:normal;color:var(--coral)}
 .appointment label{display:flex;flex-direction:column;gap:7px;font-size:11px;font-weight:600}
 .appointment input,.appointment select{width:100%;height:49px;border:1px solid #d8e1df;border-radius:10px;background:#fafbf9;padding:0 14px;color:var(--ink)}
 .appointment form small{color:#788986;font-size:9px;line-height:1.5}
-.contact{display:grid;grid-template-columns:1fr .9fr;gap:9vw;align-items:center}
-.map-art{height:500px;border-radius:48% 48% 12px 12px;background-color:#e5e1d7;background-image:linear-gradient(32deg,transparent 48%,#fff 49%,#fff 52%,transparent 53%),linear-gradient(122deg,transparent 45%,#fff 46%,#fff 50%,transparent 51%);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center}
-.map-art:after{content:"";position:absolute;width:38%;height:43%;border:1px solid #b4c5c0;border-radius:50%;transform:rotate(25deg)}
-.map-pin{font-size:54px;color:var(--coral);z-index:1}
-.map-art strong,.map-art small{background:white;padding:5px 12px;z-index:1}
-.map-art small{font-size:10px}
+.contact{display:grid;grid-template-columns:minmax(540px,1.18fr) minmax(420px,.82fr);gap:5vw;align-items:center;padding:95px 4.5vw;min-height:850px}
+.map-art{width:min(100%,640px,calc((100vh - 120px)*.8));aspect-ratio:4/5;justify-self:center;position:relative;overflow:hidden;background:#a9c9cd;filter:drop-shadow(0 30px 42px rgba(24,61,59,.2));-webkit-mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Cpath fill='black' d='M200 62C155 45 112 27 74 56C39 83 45 137 58 198C75 281 91 432 143 477C174 504 173 359 200 317C227 359 226 504 257 477C309 432 325 281 342 198C355 137 361 83 326 56C288 27 245 45 200 62Z'/%3E%3C/svg%3E");mask-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 500'%3E%3Cpath fill='black' d='M200 62C155 45 112 27 74 56C39 83 45 137 58 198C75 281 91 432 143 477C174 504 173 359 200 317C227 359 226 504 257 477C309 432 325 281 342 198C355 137 361 83 326 56C288 27 245 45 200 62Z'/%3E%3C/svg%3E");-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat}
+.map-art iframe{position:absolute;inset:8px;width:calc(100% - 16px);height:calc(100% - 16px);border:0;display:block;transform:scale(1.08);transform-origin:center}
+.map-label{position:absolute;z-index:2;left:50%;top:50%;transform:translate(-50%,-50%);white-space:nowrap;background:rgba(255,255,255,.96);color:var(--ink);padding:12px 18px 12px 35px;border-radius:999px;box-shadow:0 10px 28px rgba(24,61,59,.2);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
+.map-label:before{content:"";position:absolute;left:14px;top:50%;width:11px;height:11px;border-radius:50% 50% 50% 0;background:var(--coral);transform:translateY(-65%) rotate(-45deg);box-shadow:0 0 0 4px rgba(201,111,97,.16)}
+.contact-copy{max-width:560px}
 .contact address{font-style:normal;line-height:1.75;color:var(--muted);margin-top:27px}
 .contact address strong{color:var(--ink)}
 .contact-actions{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin-top:28px}
@@ -163,6 +163,7 @@ dialog::backdrop{background:#082522b8;backdrop-filter:blur(5px)}
 to{transform:translateX(-100%)}
 }
 
+@media(max-width:1100px){.contact{grid-template-columns:1fr 1fr;gap:4vw;padding-left:3vw;padding-right:3vw}.map-art{width:min(100%,590px,calc((100vh - 110px)*.8))}}
 @media(max-width:920px){.site-header{height:72px;padding:0 20px}
 .site-header nav{display:none;position:absolute;top:72px;left:0;right:0;padding:23px;background:var(--paper);flex-direction:column;box-shadow:0 20px 30px #173b3914}
 .site-header nav.open{display:flex}
@@ -175,6 +176,8 @@ to{transform:translateX(-100%)}
 .trust-row{margin-top:42px}
 .section{padding:76px 23px}
 .about-content,.services-heading,.doctor,.faq,.appointment,.contact{grid-template-columns:1fr;gap:43px}
+.contact{min-height:0;padding:76px 23px}
+.map-art{width:min(100%,520px)}
 .principles{grid-template-columns:1fr;margin-top:50px}
 .principles article{border-right:0;border-bottom:1px solid var(--line);margin:0;padding:26px 0}
 .services{padding:76px 23px}
@@ -204,7 +207,7 @@ to{transform:translateX(-100%)}
 .footer-top{grid-template-columns:1fr}
 .footer-brand{grid-column:auto}
 .footer-bottom{flex-direction:column;gap:8px}
-.map-art{height:380px}
+.map-art{height:auto;aspect-ratio:4/5}
 dialog{padding:38px 24px}
 .modal-title{font-size:36px}
 }
